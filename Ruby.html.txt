@@ -1,0 +1,2078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AURELIA | Luxury Jewellery</title>
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #faf8f4;
+    color: #29231f;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(250, 248, 244, 0.96);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(160, 125, 75, 0.15);
+}
+
+.navbar {
+    max-width: 1250px;
+    height: 78px;
+    margin: auto;
+    padding: 0 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: Georgia, serif;
+    font-size: 29px;
+    letter-spacing: 4px;
+    color: #9b7138;
+}
+
+.logo span {
+    display: block;
+    font-family: Arial, sans-serif;
+    font-size: 8px;
+    letter-spacing: 4px;
+    text-align: center;
+    color: #777;
+    margin-top: -3px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    font-size: 14px;
+    font-weight: 600;
+    color: #403a35;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ae7e39;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+
+.nav-icon {
+    position: relative;
+    font-size: 21px;
+    cursor: pointer;
+}
+
+.cart-number {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+
+    width: 19px;
+    height: 19px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #a97935;
+    color: white;
+    border-radius: 50%;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 100vh;
+    padding: 100px 7% 60px;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(24, 20, 17, 0.92) 0%,
+            rgba(24, 20, 17, 0.72) 42%,
+            rgba(24, 20, 17, 0.15) 100%
+        ),
+        url("https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=1800&q=90");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 620px;
+    color: white;
+}
+
+.hero-small {
+    color: #d6ad6a;
+    letter-spacing: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(48px, 7vw, 82px);
+    line-height: 1.02;
+    font-weight: normal;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: #d7ae68;
+}
+
+.hero p {
+    color: #e6e0d8;
+    max-width: 530px;
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    border: none;
+    padding: 15px 30px;
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.gold-btn {
+    background: #b88a47;
+    color: white;
+}
+
+.gold-btn:hover {
+    background: #9a6e32;
+    transform: translateY(-3px);
+}
+
+.outline-btn {
+    background: transparent;
+    border: 1px solid #d7ae68;
+    color: white;
+}
+
+.outline-btn:hover {
+    background: #d7ae68;
+    color: #241e19;
+}
+
+
+/* =========================================================
+   GENERAL SECTION
+========================================================= */
+
+section {
+    padding: 95px 7%;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+.section-heading small {
+    color: #ae7e39;
+    letter-spacing: 4px;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.section-heading h2 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+    font-size: 44px;
+    margin: 12px 0;
+}
+
+.section-heading p {
+    color: #777;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   CATEGORIES
+========================================================= */
+
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 45px;
+}
+
+.category-btn {
+    border: 1px solid #d8c8ae;
+    background: transparent;
+    padding: 11px 22px;
+    color: #6b5437;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.category-btn:hover,
+.category-btn.active {
+    background: #a97935;
+    color: white;
+    border-color: #a97935;
+}
+
+
+/* =========================================================
+   PRODUCTS
+========================================================= */
+
+.products-grid {
+    max-width: 1250px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.product-card {
+    background: white;
+    position: relative;
+    overflow: hidden;
+
+    border: 1px solid #eee7dd;
+
+    transition: 0.4s;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(75, 52, 25, 0.13);
+}
+
+.product-image {
+    height: 330px;
+    overflow: hidden;
+    position: relative;
+    background: #f2eee8;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.6s;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.06);
+}
+
+.product-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+
+    background: #24201c;
+    color: white;
+
+    padding: 6px 11px;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.wishlist {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+
+    width: 37px;
+    height: 37px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.95);
+
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.wishlist:hover {
+    color: #b07634;
+    transform: scale(1.1);
+}
+
+.product-info {
+    padding: 22px;
+}
+
+.product-category {
+    color: #ae7e39;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.product-info h3 {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    font-weight: normal;
+    margin: 7px 0;
+}
+
+.product-info p {
+    color: #888;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.product-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.price {
+    font-size: 19px;
+    color: #8e642e;
+    font-weight: bold;
+}
+
+.add-cart {
+    border: 1px solid #c6a46b;
+    background: transparent;
+    color: #93682e;
+
+    padding: 9px 13px;
+
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+.add-cart:hover {
+    background: #a97935;
+    color: white;
+}
+
+
+/* =========================================================
+   FEATURE BANNER
+========================================================= */
+
+.feature-banner {
+    min-height: 480px;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(22,18,15,0.9),
+            rgba(22,18,15,0.3)
+        ),
+        url("https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=1800&q=90");
+
+    background-size: cover;
+    background-position: center;
+
+    color: white;
+}
+
+.feature-content {
+    max-width: 550px;
+}
+
+.feature-content small {
+    color: #d5aa65;
+    letter-spacing: 4px;
+}
+
+.feature-content h2 {
+    font-family: Georgia, serif;
+    font-size: 52px;
+    font-weight: normal;
+    margin: 15px 0 20px;
+}
+
+.feature-content p {
+    color: #e0dad4;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-container {
+    max-width: 1200px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.about-image {
+    height: 560px;
+    overflow: hidden;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-content small {
+    color: #a97935;
+    letter-spacing: 4px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.about-content h2 {
+    font-family: Georgia, serif;
+    font-size: 45px;
+    font-weight: normal;
+    margin: 15px 0 25px;
+}
+
+.about-content p {
+    color: #706b66;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.about-list {
+    list-style: none;
+    margin-top: 25px;
+}
+
+.about-list li {
+    margin: 14px 0;
+    font-weight: 600;
+}
+
+.about-list span {
+    color: #a97935;
+    margin-right: 10px;
+}
+
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.services {
+    background: #f3efe8;
+}
+
+.services-grid {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.service-card {
+    background: #fff;
+    padding: 38px 28px;
+    text-align: center;
+
+    border: 1px solid #e8dfd1;
+
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+}
+
+.service-icon {
+    width: 65px;
+    height: 65px;
+
+    margin: auto auto 20px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f1e4cf;
+    color: #9d7033;
+
+    font-size: 27px;
+}
+
+.service-card h3 {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    color: #777;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   TESTIMONIALS
+========================================================= */
+
+.testimonials-grid {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.testimonial {
+    background: white;
+    padding: 35px;
+
+    border: 1px solid #eee6da;
+
+    text-align: center;
+}
+
+.stars {
+    color: #b07d36;
+    font-size: 18px;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.testimonial p {
+    color: #716b66;
+    font-style: italic;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.testimonial h4 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+}
+
+
+/* =========================================================
+   NEWSLETTER
+========================================================= */
+
+.newsletter {
+    background: #28231f;
+    color: white;
+    text-align: center;
+}
+
+.newsletter h2 {
+    font-family: Georgia, serif;
+    font-size: 42px;
+    font-weight: normal;
+    margin-bottom: 12px;
+}
+
+.newsletter p {
+    color: #cfc7bf;
+    margin-bottom: 28px;
+}
+
+.newsletter-form {
+    max-width: 550px;
+    margin: auto;
+
+    display: flex;
+    background: white;
+    padding: 5px;
+}
+
+.newsletter-form input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 13px 15px;
+}
+
+.newsletter-form button {
+    border: none;
+    background: #a97935;
+    color: white;
+    padding: 12px 22px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    background: #171411;
+    color: white;
+    padding: 60px 7% 25px;
+}
+
+.footer-grid {
+    max-width: 1200px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+}
+
+.footer-brand h3 {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    color: #d2a45e;
+    margin-bottom: 15px;
+}
+
+.footer-brand p {
+    color: #aaa29b;
+    line-height: 1.8;
+    max-width: 350px;
+}
+
+footer h4 {
+    color: #d2a45e;
+    margin-bottom: 18px;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer li {
+    color: #aaa29b;
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 45px auto 0;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #38322d;
+
+    text-align: center;
+
+    color: #777;
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+
+    background: #29231f;
+    color: white;
+
+    padding: 15px 22px;
+
+    opacity: 0;
+    transform: translateY(80px);
+
+    transition: 0.4s;
+
+    z-index: 2000;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width: 1050px) {
+
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr;
+    }
+}
+
+@media(max-width: 800px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        background-position: 65% center;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+    }
+
+    .about-image {
+        height: 400px;
+    }
+
+    .services-grid,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width: 600px) {
+
+    .products-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+
+    .product-image {
+        height: 380px;
+    }
+
+    .hero {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    section {
+        padding: 70px 5%;
+    }
+
+    .section-heading h2 {
+        font-size: 35px;
+    }
+
+    .feature-content h2 {
+        font-size: 40px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<header>
+
+<nav class="navbar">
+
+    <a href="#home" class="logo">
+        AURELIA
+        <span>FINE JEWELLERY</span>
+    </a>
+
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#collection">Collection</a></li>
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-icons">
+
+        <div class="nav-icon">
+            ♡
+        </div>
+
+        <div class="nav-icon" id="cartButton">
+            🛍
+            <span class="cart-number" id="cartCount">0</span>
+        </div>
+
+    </div>
+
+</nav>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+    <div class="hero-small">
+        TIMELESS • ELEGANT • RARE
+    </div>
+
+    <h1>
+        Jewellery that
+        <span>tells your story.</span>
+    </h1>
+
+    <p>
+        Discover exquisite jewellery crafted for life's most
+        precious moments. From elegant necklaces to timeless
+        rings, every piece is designed to become part of your story.
+    </p>
+
+    <div class="hero-buttons">
+
+        <a href="#collection" class="btn gold-btn">
+            SHOP COLLECTION
+        </a>
+
+        <a href="#about" class="btn outline-btn">
+            DISCOVER AURELIA
+        </a>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     COLLECTION
+===================================================== -->
+
+<section id="collection">
+
+<div class="section-heading">
+
+    <small>OUR COLLECTION</small>
+
+    <h2>Pieces Worth Cherishing</h2>
+
+    <p>
+        Explore our carefully curated collection of elegant
+        jewellery designed to complement every occasion.
+    </p>
+
+</div>
+
+
+<!-- Categories -->
+
+<div class="categories">
+
+    <button
+        class="category-btn active"
+        onclick="filterProducts('all', this)">
+        All
+    </button>
+
+    <button
+        class="category-btn"
+        onclick="filterProducts('rings', this)">
+        Rings
+    </button>
+
+    <button
+        class="category-btn"
+        onclick="filterProducts('necklaces', this)">
+        Necklaces
+    </button>
+
+    <button
+        class="category-btn"
+        onclick="filterProducts('earrings', this)">
+        Earrings
+    </button>
+
+    <button
+        class="category-btn"
+        onclick="filterProducts('bracelets', this)">
+        Bracelets
+    </button>
+
+</div>
+
+
+<!-- Products -->
+
+<div class="products-grid">
+
+
+<!-- PRODUCT 1 -->
+
+<div class="product-card" data-category="rings">
+
+    <div class="product-image">
+
+        <img
+        src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=800&q=90"
+        alt="Diamond Ring">
+
+        <span class="product-tag">
+            BESTSELLER
+        </span>
+
+        <button
+        class="wishlist"
+        onclick="wishlist(this)">
+            ♡
+        </button>
+
+    </div>
+
+    <div class="product-info">
+
+        <span class="product-category">
+            RINGS
+        </span>
+
+        <h3>
+            Celeste Diamond Ring
+        </h3>
+
+        <p>
+            Elegant diamond ring with a timeless design.
+        </p>
+
+        <div class="product-bottom">
+
+            <span class="price">
+                $1,250
+            </span>
+
+            <button
+            class="add-cart"
+            onclick="addToCart('Celeste Diamond Ring')">
+                ADD TO BAG
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- PRODUCT 2 -->
+
+<div class="product-card" data-category="necklaces">
+
+    <div class="product-image">
+
+        <img
+        src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=90"
+        alt="Gold Necklace">
+
+        <button
+        class="wishlist"
+        onclick="wishlist(this)">
+            ♡
+        </button>
+
+    </div>
+
+    <div class="product-info">
+
+        <span class="product-category">
+            NECKLACES
+        </span>
+
+        <h3>
+            Aurelia Gold Necklace
+        </h3>
+
+        <p>
+            Delicate gold necklace for effortless elegance.
+        </p>
+
+        <div class="product-bottom">
+
+            <span class="price">
+                $780
+            </span>
+
+            <button
+            class="add-cart"
+            onclick="addToCart('Aurelia Gold Necklace')">
+                ADD TO BAG
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- PRODUCT 3 -->
+
+<div class="product-card" data-category="earrings">
+
+    <div class="product-image">
+
+        <img
+        src="https://images.unsplash.com/photo-1635767798638-3e25273a8236?auto=format&fit=crop&w=800&q=90"
+        alt="Gold Earrings">
+
+        <span class="product-tag">
+            NEW
+        </span>
+
+        <button
+        class="wishlist"
+        onclick="wishlist(this)">
+            ♡
+        </button>
+
+    </div>
+
+    <div class="product-info">
+
+        <span class="product-category">
+            EARRINGS
+        </span>
+
+        <h3>
+            Luna Gold Hoops
+        </h3>
+
+        <p>
+            Modern gold hoops with a refined finish.
+        </p>
+
+        <div class="product-bottom">
+
+            <span class="price">
+                $490
+            </span>
+
+            <button
+            class="add-cart"
+            onclick="addToCart('Luna Gold Hoops')">
+                ADD TO BAG
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- PRODUCT 4 -->
+
+<div class="product-card" data-category="bracelets">
+
+    <div class="product-image">
+
+        <img
+        src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=800&q=90"
+        alt="Gold Bracelet">
+
+        <button
+        class="wishlist"
+        onclick="wishlist(this)">
+            ♡
+        </button>
+
+    </div>
+
+    <div class="product-info">
+
+        <span class="product-category">
+            BRACELETS
+        </span>
+
+        <h3>
+            Élan Gold Bracelet
+        </h3>
+
+        <p>
+            Minimal gold bracelet made for everyday luxury.
+        </p>
+
+        <div class="product-bottom">
+
+            <span class="price">
+                $620
+            </span>
+
+            <button
+            class="add-cart"
+            onclick="addToCart('Élan Gold Bracelet')">
+                ADD TO BAG
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- PRODUCT 5 -->
+
+<div class="product-card" data-category="rings">
+
+    <div class="product-image">
+
+        <img
+        src="https://images.unsplash.com/photo-1627293509201-cd1d2c2b2c52?auto=format&fit=crop&w=800&q=90"
+        alt="Luxury Ring">
+
+        <button
+        class="wishlist"
+        onclick="wishlist(this)">
+            ♡
+        </button>
+
+    </div>
+
+    <div class="product-info">
+
+        <span class="product-category">
+            RINGS
+        </span>
+
+        <h3>
+            Verona Gold Ring
+        </h3>
+
+        <p>
+            Contemporary ring with an elegant gold finish.
+        </p>
+
+        <div class="product-bottom">
+
+            <span class="price">
+                $850
+            </span>
+
+            <button
+            class="add-cart"
+            onclick="addToCart('Verona Gold Ring')">
+                ADD TO BAG
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- PRODUCT 6 -->
+
+<div class="product-card" data-category="necklaces">
+
+    <div class="product-image">
+
+        <img
+        src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=800&q=90"
+        alt="Pearl Necklace">
+
+        <span class="product-tag">
+            LIMITED
+        </span>
+
+        <button
+        class="wishlist"
+        onclick="wishlist(this)">
+            ♡
+        </button>
+
+    </div>
+
+    <div class="product-info">
+
+        <span class="product-category">
+            NECKLACES
+        </span>
+
+        <h3>
+            Pearl Étoile
+        </h3>
+
+        <p>
+            Elegant pearl necklace with delicate detailing.
+        </p>
+
+        <div class="product-bottom">
+
+            <span class="price">
+                $990
+            </span>
+
+            <button
+            class="add-cart"
+            onclick="addToCart('Pearl Étoile')">
+                ADD TO BAG
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- PRODUCT 7 -->
+
+<div class="product-card" data-category="earrings">
+
+    <div class="product-image">
+
+        <img
+        src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=90"
+        alt="Luxury Earrings">
+
+        <button
+        class="wishlist"
+        onclick="wishlist(this)">
+            ♡
+        </button>
+
+    </div>
+
+    <div class="product-info">
+
+        <span class="product-category">
+            EARRINGS
+        </span>
+
+        <h3>
+            Isabella Earrings
+        </h3>
+
+        <p>
+            Refined earrings designed for evening elegance.
+        </p>
+
+        <div class="product-bottom">
+
+            <span class="price">
+                $560
+            </span>
+
+            <button
+            class="add-cart"
+            onclick="addToCart('Isabella Earrings')">
+                ADD TO BAG
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- PRODUCT 8 -->
+
+<div class="product-card" data-category="bracelets">
+
+    <div class="product-image">
+
+        <img
+        src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=800&q=90"
+        alt="Diamond Bracelet">
+
+        <span class="product-tag">
+            PREMIUM
+        </span>
+
+        <button
+        class="wishlist"
+        onclick="wishlist(this)">
+            ♡
+        </button>
+
+    </div>
+
+    <div class="product-info">
+
+        <span class="product-category">
+            BRACELETS
+        </span>
+
+        <h3>
+            Imperial Bracelet
+        </h3>
+
+        <p>
+            A statement bracelet crafted for special occasions.
+        </p>
+
+        <div class="product-bottom">
+
+            <span class="price">
+                $1,480
+            </span>
+
+            <button
+            class="add-cart"
+            onclick="addToCart('Imperial Bracelet')">
+                ADD TO BAG
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FEATURE BANNER
+===================================================== -->
+
+<section class="feature-banner">
+
+<div class="feature-content">
+
+    <small>THE SIGNATURE COLLECTION</small>
+
+    <h2>
+        Crafted to become
+        your forever piece.
+    </h2>
+
+    <p>
+        Discover jewellery created with exceptional attention
+        to detail, elegant materials and timeless craftsmanship.
+    </p>
+
+    <a href="#collection" class="btn gold-btn">
+        EXPLORE SIGNATURE
+    </a>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section id="about">
+
+<div class="about-container">
+
+    <div class="about-image">
+
+        <img
+        src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=1000&q=90"
+        alt="Aurelia jewellery">
+
+    </div>
+
+
+    <div class="about-content">
+
+        <small>OUR STORY</small>
+
+        <h2>
+            More than jewellery.
+            A piece of you.
+        </h2>
+
+        <p>
+            Aurelia was created from a simple belief:
+            jewellery should feel personal.
+        </p>
+
+        <p>
+            Every piece is carefully selected and designed
+            to celebrate individuality, elegance and the
+            unforgettable moments of life.
+        </p>
+
+        <ul class="about-list">
+
+            <li>
+                <span>✦</span>
+                Premium quality materials
+            </li>
+
+            <li>
+                <span>✦</span>
+                Carefully crafted designs
+            </li>
+
+            <li>
+                <span>✦</span>
+                Elegant packaging
+            </li>
+
+            <li>
+                <span>✦</span>
+                Trusted customer service
+            </li>
+
+        </ul>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     SERVICES
+===================================================== -->
+
+<section class="services" id="services">
+
+<div class="section-heading">
+
+    <small>THE AURELIA EXPERIENCE</small>
+
+    <h2>
+        Made for Your Moments
+    </h2>
+
+    <p>
+        From selecting your piece to receiving it,
+        we make every part of the experience special.
+    </p>
+
+</div>
+
+
+<div class="services-grid">
+
+    <div class="service-card">
+
+        <div class="service-icon">
+            ✦
+        </div>
+
+        <h3>
+            Premium Quality
+        </h3>
+
+        <p>
+            Every piece is carefully selected for quality,
+            elegance and lasting beauty.
+        </p>
+
+    </div>
+
+
+    <div class="service-card">
+
+        <div class="service-icon">
+            ♡
+        </div>
+
+        <h3>
+            Gift Packaging
+        </h3>
+
+        <p>
+            Beautiful luxury packaging makes every purchase
+            ready for someone special.
+        </p>
+
+    </div>
+
+
+    <div class="service-card">
+
+        <div class="service-icon">
+            ◇
+        </div>
+
+        <h3>
+            Secure Delivery
+        </h3>
+
+        <p>
+            Your jewellery is carefully packaged and securely
+            delivered to your doorstep.
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     TESTIMONIALS
+===================================================== -->
+
+<section>
+
+<div class="section-heading">
+
+    <small>CLIENT STORIES</small>
+
+    <h2>
+        Loved by Our Customers
+    </h2>
+
+</div>
+
+
+<div class="testimonials-grid">
+
+    <div class="testimonial">
+
+        <div class="stars">
+            ★★★★★
+        </div>
+
+        <p>
+            "The necklace was even more beautiful in person.
+            The packaging was absolutely gorgeous."
+        </p>
+
+        <h4>
+            — Sarah M.
+        </h4>
+
+    </div>
+
+
+    <div class="testimonial">
+
+        <div class="stars">
+            ★★★★★
+        </div>
+
+        <p>
+            "I bought a ring as a birthday gift and it was
+            beautifully presented. Highly recommended."
+        </p>
+
+        <h4>
+            — Emma R.
+        </h4>
+
+    </div>
+
+
+    <div class="testimonial">
+
+        <div class="stars">
+            ★★★★★
+        </div>
+
+        <p>
+            "Elegant designs, excellent quality and very
+            professional service."
+        </p>
+
+        <h4>
+            — Olivia K.
+        </h4>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     NEWSLETTER
+===================================================== -->
+
+<section class="newsletter" id="contact">
+
+<h2>
+    Join the Aurelia Circle
+</h2>
+
+<p>
+    Receive exclusive offers, new collection updates
+    and inspiration directly in your inbox.
+</p>
+
+<form
+    class="newsletter-form"
+    onsubmit="subscribe(event)">
+
+    <input
+        type="email"
+        id="email"
+        placeholder="Enter your email address"
+        required>
+
+    <button type="submit">
+        SUBSCRIBE
+    </button>
+
+</form>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div class="footer-grid">
+
+    <div class="footer-brand">
+
+        <h3>
+            AURELIA
+        </h3>
+
+        <p>
+            Timeless jewellery for modern moments.
+            Discover pieces designed to celebrate
+            your unique story.
+        </p>
+
+    </div>
+
+
+    <div>
+
+        <h4>
+            SHOP
+        </h4>
+
+        <ul>
+
+            <li>
+                <a href="#collection">
+                    Rings
+                </a>
+            </li>
+
+            <li>
+                <a href="#collection">
+                    Necklaces
+                </a>
+            </li>
+
+            <li>
+                <a href="#collection">
+                    Earrings
+                </a>
+            </li>
+
+            <li>
+                <a href="#collection">
+                    Bracelets
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <div>
+
+        <h4>
+            INFORMATION
+        </h4>
+
+        <ul>
+
+            <li>
+                Our Story
+            </li>
+
+            <li>
+                Shipping
+            </li>
+
+            <li>
+                Returns
+            </li>
+
+            <li>
+                Privacy Policy
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <div>
+
+        <h4>
+            CONTACT
+        </h4>
+
+        <ul>
+
+            <li>
+                📍 Your City
+            </li>
+
+            <li>
+                📞 +92 300 1234567
+            </li>
+
+            <li>
+                ✉ hello@aurelia.com
+            </li>
+
+            <li>
+                📷 Instagram
+            </li>
+
+        </ul>
+
+    </div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+    © 2026 AURELIA Fine Jewellery. All Rights Reserved.
+
+</div>
+
+</footer>
+
+
+<!-- Toast -->
+
+<div class="toast" id="toast">
+    Added to your shopping bag.
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+/* ---------------------------------------------------------
+   CART
+--------------------------------------------------------- */
+
+let cartCount = 0;
+
+function addToCart(productName) {
+
+    cartCount++;
+
+    document.getElementById("cartCount").textContent =
+        cartCount;
+
+    showToast(
+        productName + " added to your bag ✦"
+    );
+}
+
+
+/* ---------------------------------------------------------
+   CART BUTTON
+--------------------------------------------------------- */
+
+document
+.getElementById("cartButton")
+.addEventListener("click", function() {
+
+    if (cartCount === 0) {
+
+        showToast(
+            "Your shopping bag is empty."
+        );
+
+    } else {
+
+        showToast(
+            "You have " +
+            cartCount +
+            " item(s) in your bag."
+        );
+
+    }
+
+});
+
+
+/* ---------------------------------------------------------
+   TOAST
+--------------------------------------------------------- */
+
+function showToast(message) {
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    setTimeout(function() {
+
+        toast.classList.remove("show");
+
+    }, 2500);
+
+}
+
+
+/* ---------------------------------------------------------
+   WISHLIST
+--------------------------------------------------------- */
+
+function wishlist(button) {
+
+    if (button.textContent === "♡") {
+
+        button.textContent = "♥";
+
+        button.style.color = "#a97935";
+
+        showToast(
+            "Added to your wishlist ♡"
+        );
+
+    } else {
+
+        button.textContent = "♡";
+
+        button.style.color = "";
+
+        showToast(
+            "Removed from your wishlist."
+        );
+
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   PRODUCT FILTER
+--------------------------------------------------------- */
+
+function filterProducts(category, button) {
+
+    const products =
+        document.querySelectorAll(".product-card");
+
+    const buttons =
+        document.querySelectorAll(".category-btn");
+
+
+    buttons.forEach(function(btn) {
+
+        btn.classList.remove("active");
+
+    });
+
+    button.classList.add("active");
+
+
+    products.forEach(function(product) {
+
+        if (
+            category === "all" ||
+            product.dataset.category === category
+        ) {
+
+            product.style.display = "block";
+
+        } else {
+
+            product.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+/* ---------------------------------------------------------
+   NEWSLETTER
+--------------------------------------------------------- */
+
+function subscribe(event) {
+
+    event.preventDefault();
+
+    const email =
+        document.getElementById("email").value;
+
+    showToast(
+        "Welcome to the Aurelia Circle ✦"
+    );
+
+    document
+        .querySelector(".newsletter-form")
+        .reset();
+
+}
+
+
+/* ---------------------------------------------------------
+   SIMPLE SCROLL ANIMATION
+--------------------------------------------------------- */
+
+const cards =
+    document.querySelectorAll(
+        ".product-card, .service-card, .testimonial"
+    );
+
+const observer =
+    new IntersectionObserver(
+        function(entries) {
+
+            entries.forEach(function(entry) {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform =
+                        "translateY(0)";
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.1
+        }
+    );
+
+
+cards.forEach(function(card) {
+
+    card.style.opacity = "0";
+    card.style.transform = "translateY(25px)";
+    card.style.transition =
+        "opacity 0.7s ease, transform 0.7s ease";
+
+    observer.observe(card);
+
+});
+
+</script>
+
+</body>
+</html>
